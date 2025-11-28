@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>АНДРЮХА | Раскладчик будущего 🚀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #009640;
+      --green-light: #e8f5e9;
+      --green-dark: #00692c;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --black: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    .abstract-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.05;
+    }
+
+    .abstract-bg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    header {
+      padding: 2rem 5%;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 5%;
+      background: linear-gradient(135deg, var(--green-light) 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .andryuha-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 150, 64, 0.1);
+      padding: 2.5rem;
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .andryuha-card::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: var(--green);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .role {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .car-badge {
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 4rem 5%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--green);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 2px solid #eee;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+      box-shadow: 0 5px 15px rgba(0, 150, 64, 0.15);
+    }
+
+    .service-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--green-dark);
+      margin-bottom: 0.7rem;
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .donate-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .donate-btn:hover {
+      background: var(--green-dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--black);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .logo { font-size: 2.2rem; }
+      .name { font-size: 2.2rem; }
+      .role { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Абстрактный фон -->
+  <div class="abstract-bg">
+    <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L300,200 L100,500 L0,600 Z" fill="#009640"/>
+      <circle cx="800" cy="100" r="120" fill="#009640" opacity="0.2"/>
+      <rect x="200" y="300" width="200" height="200" fill="#009640" opacity="0.1" transform="rotate(15 300 400)"/>
+    </svg>
+  </div>
+
+  <header>
+    <div class="logo">⚡ ANDRYUHA.PRO</div>
+    <div class="subtitle">Официальный сайт самого быстрого раскладчика Леруа Мерлен в регионе. Новичок? Да. Гений? Уже.</div>
+  </header>
+
+  <section class="hero">
+    <div class="andryuha-card">
+      <div class="name">АНДРЮХА</div>
+      <div class="role">Раскладчик · Логистика · Турбонадув-энтузиаст</div>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value">15+</div>
+          <div class="stat-label">смен отработано</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">98%</div>
+          <div class="stat-label">точность сборки</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">2x</div>
+          <div class="stat-label">турбо на Рапиде</div>
+        </div>
+      </div>
+
+      <div class="car-badge">Škoda Rapid 1.5L TSI TwinCharge 🚗💨</div>
+
+      <p>Андрюха приходит на склад в 6:55, раскладывает 3 тонны товара до обеда — и всё это с улыбкой. Потому что порядок — это искусство.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Услуги и Достижения</h2>
+    <div class="services">
+      <div class="service-card">
+        <div class="service-title">Идеальная раскладка</div>
+        <div class="service-desc">Товары расставлены так, будто их складывал ИКЕА... но быстрее и с душой.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Турбо-доставка мыслей</div>
+        <div class="service-desc">Если товар ещё не на полке — Андрюха уже знает, где он будет через 7 минут.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Оптимизация пространства</div>
+        <div class="service-desc">Даже гипсокартон становится эстетикой. Философия "всё на месте — всё под контролем".</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--green-light); text-align: center;">
+    <h2>Поддержать Андрюху 🫶</h2>
+    <p style="max-width: 600px; margin: 0 auto 1.5rem; color: #555;">
+      Андрюха не берёт чаевые (это не по-профессиональному), но принимает инвестиции в развитие:
+    </p>
+
+    <div class="services">
+      <div class="service-card">
+        <div class="service-title">☕ Кофе-буст</div>
+        <div class="service-desc">Подзарядка перед сменой. 150 ₽</div>
+        <button class="donate-btn" onclick="alert('Спасибо! Андрюха уже пьёт эспрессо и думает о новых схемах раскладки.')">Поддержать</button>
+      </div>
+      <div class="service-card">
+        <div class="service-title">🔧 Турбо-мойка</div>
+        <div class="service-desc">Чистая Шкода = чистые мысли. 500 ₽</div>
+        <button class="donate-btn" onclick="alert('Рапид сверкает! Турбонадувы работают на 110%.')">Поддержать</button>
+      </div>
+      <div class="service-card">
+        <div class="service-title">🏆 Повышение квалификации</div>
+        <div class="service-desc">Курс «Мастерство раскладки: от новичка до легенды». 1500 ₽</div>
+        <button class="donate-btn" onclick="alert('Андрюха записался на вебинар. Первый диплом — уже в пути! 🎓')">Поддержать</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ANDRYUHA.PRO | Сделано с любовью к порядку и двум турбинам
+    <br>
+    <em>«Если товар не найден — значит, его ещё не раскладывал Андрюха»</em>
+  </footer>
+
+</body>
+</html>
